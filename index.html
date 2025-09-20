@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>📝 My Tasks</h2>
+      <nav>
+        <ul>
+          <li class="active" id="allTasksTab"><i class="fa fa-list"></i> All Tasks</li>
+          <li id="todayTab"><i class="fa fa-calendar-day"></i> Today</li>
+          <li id="upcomingTab"><i class="fa fa-calendar-alt"></i> Upcoming</li>
+          <li id="completedTab"><i class="fa fa-check"></i> Completed</li>
+          <li id="dashboardTab"><i class="fa fa-chart-pie"></i> Dashboard</li>
+        </ul>
+      </nav>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa fa-moon"></i> Dark Mode
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="topbar">
+        <div class="date" id="currentDate"></div>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="🔍 Search tasks...">
+        </div>
+      </div>
+
+      <!-- Motivation / Summary -->
+      <div class="motivation-box">
+        <h3 id="quote">💡 Quote of the Day</h3>
+        <div class="mot-stats">
+          <span id="streak">🔥 Streak: 0 days</span>
+          <span id="points">🏆 Points: 0</span>
+        </div>
+      </div>
+
+      <header>
+        <h1>🚀 Advanced Task Manager</h1>
+      </header>
+
+      <!-- Task List -->
+      <section class="task-section">
+        <ul id="taskList"></ul>
+      </section>
+
+      <!-- Progress -->
+      <div class="progress-container">
+        <p>Progress:</p>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <span id="progressText">0% Completed</span>
+      </div>
+
+      <!-- Dashboard Chart -->
+      <div class="chart-wrap">
+        <canvas id="chartCanvas"></canvas>
+      </div>
+    </main>
+
+    <!-- Floating Add Button -->
+    <button class="add-btn" id="addTaskBtn"><i class="fa fa-plus"></i></button>
+  </div>
+
+  <!-- Task Modal -->
+  <div class="modal" id="taskModal">
+    <div class="modal-content">
+      <h3>Add New Task</h3>
+      <input type="text" id="taskInput" placeholder="Task name">
+      <select id="priorityInput">
+        <option value="low">🟢 Low Priority</option>
+        <option value="medium">🟡 Medium Priority</option>
+        <option value="high">🔴 High Priority</option>
+      </select>
+      <input type="datetime-local" id="deadlineInput">
+      <div class="modal-actions">
+        <button id="saveTaskBtn">Save Task</button>
+        <button id="closeModalBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
